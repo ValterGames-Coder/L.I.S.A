@@ -1,0 +1,64 @@
+{
+    "settings": {
+        "voice": "ru-RU-DmitryNeural",
+        "vosk_path": "model/vosk-model-small-ru-0.22"
+    },
+    "commands": [
+        {
+            "triggers": [
+                "файрфокс",
+                "фокс",
+                "лиса",
+                "браузер",
+                "firefox"
+            ],
+            "response": "Запускаю браузер Firefox",
+            "exec": "firefox"
+        },
+        {
+            "triggers": [
+                "терминал",
+                "консоль",
+                "terminal"
+            ],
+            "response": "Открываю терминал",
+            "exec": "gnome-terminal"
+        },
+        {
+            "triggers": [
+                "код",
+                "редактор",
+                "ви эс код",
+                "vs code"
+            ],
+            "response": "Запускаю среду разработки",
+            "exec": "code"
+        },
+        {
+            "triggers": [
+                "обнови",
+                "апдейт",
+                "update"
+            ],
+            "response": "Начинаю обновление системы",
+            "exec": "gnome-terminal -- sudo dnf update -y"
+        },
+        {
+            "triggers": [
+                "выход",
+                "стоп",
+                "пока"
+            ],
+            "response": "До связи",
+            "exec": "exit_script"
+        },
+        {
+            "triggers": [
+                "документы",
+                "офис"
+            ],
+            "response": "Запускаю OnlyOffice",
+            "exec": "/usr/bin/onlyoffice-desktopeditors"
+        }
+    ]
+}
