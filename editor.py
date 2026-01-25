@@ -11,136 +11,34 @@ from PyQt6.QtCore import Qt
 CONFIG_FILE = "config.json"
 
 STYLESHEET = """
-QMainWindow {
-    background-color: #181825; /* Очень темный фон подложки */
-}
-QWidget {
-    color: #cdd6f4;
-    font-family: 'Segoe UI', 'Roboto', sans-serif;
-    font-size: 14px;
-}
-
-/* КАРТОЧКИ (ЛЕВАЯ И ПРАВАЯ ПАНЕЛИ) */
-QFrame#Panel {
-    background-color: #1e1e2e; /* Цвет карточек */
-    border-radius: 20px;       /* СИЛЬНОЕ ЗАКРУГЛЕНИЕ БЛОКОВ */
-    border: 1px solid #313244;
-}
-
-/* ЗАГОЛОВКИ ВНУТРИ БЛОКОВ */
-QLabel#Header {
-    font-size: 16px;
-    font-weight: bold;
-    color: #89b4fa;
-    margin-bottom: 10px;
-}
-
-/* СПИСОК */
-QListWidget {
-    background-color: #252535; /* Чуть светлее фона карточки */
-    border: none;
-    border-radius: 12px;
-    padding: 8px;
-    outline: none;
-}
-QListWidget::item {
-    padding: 14px;
-    margin-bottom: 6px;
-    border-radius: 10px;
-    color: #a6adc8;
-}
-QListWidget::item:selected {
-    background-color: #3b82f6;
-    color: white;
-    font-weight: bold;
-}
-QListWidget::item:hover {
-    background-color: #313244;
-}
-
-/* ПОЛЯ ВВОДА */
-QLineEdit, QComboBox {
-    background-color: #252535;
-    border: 1px solid #45475a;
-    border-radius: 12px; /* Закругленные поля */
-    padding: 0 15px;
-    color: white;
-    min-height: 45px; /* Высокие поля */
-}
-QLineEdit:focus, QComboBox:focus {
-    border: 1px solid #89b4fa;
-    background-color: #2a2a3d;
-}
-
-/* РАДИО КНОПКИ */
-QRadioButton {
-    spacing: 12px;
-    font-weight: 500;
-}
-QRadioButton::indicator {
-    width: 22px;
-    height: 22px;
-    border-radius: 12px;
-    border: 2px solid #585b70;
-}
-QRadioButton::indicator:checked {
-    background-color: #3b82f6;
-    border-color: #3b82f6;
-}
-
-/* ОБЫЧНЫЕ КНОПКИ (Добавить/Удалить) */
-QPushButton {
-    border-radius: 12px;
-    font-weight: bold;
-    min-height: 40px;
-}
-QPushButton#btnAdd {
-    background-color: transparent;
-    color: #a6e3a1;
-    border: 2px solid #313244;
-}
-QPushButton#btnAdd:hover {
-    background-color: #a6e3a1;
-    color: #1e1e2e;
-    border: 2px solid #a6e3a1;
-}
-QPushButton#btnDel {
-    background-color: transparent;
-    color: #f38ba8;
-    border: 2px solid #313244;
-}
-QPushButton#btnDel:hover {
-    background-color: #f38ba8;
-    color: #1e1e2e;
-    border: 2px solid #f38ba8;
-}
-
-/* КНОПКА СОХРАНЕНИЯ (ОБВОДКА) */
-QPushButton#btnSave {
-    background-color: transparent;
-    color: #3b82f6;
-    border: 3px solid #3b82f6; /* Жирная обводка */
-    border-radius: 16px;       /* Круглая кнопка */
-    font-size: 16px;
-    font-weight: 800;
-    min-height: 55px;
-    margin-top: 10px;
-}
-QPushButton#btnSave:hover {
-    background-color: #3b82f6;
-    color: white;
-}
-QPushButton#btnSave:pressed {
-    background-color: #2563eb;
-    border-color: #2563eb;
-}
+QMainWindow { background-color: #181825; }
+QWidget { color: #cdd6f4; font-family: 'Segoe UI', 'Roboto', sans-serif; font-size: 14px; }
+QFrame#Panel { background-color: #1e1e2e; border-radius: 20px; border: 1px solid #313244; }
+QLabel#Header { font-size: 16px; font-weight: bold; color: #89b4fa; margin-bottom: 5px; }
+QListWidget { background-color: #252535; border: none; border-radius: 12px; padding: 8px; outline: none; }
+QListWidget::item { padding: 14px; margin-bottom: 6px; border-radius: 10px; color: #a6adc8; }
+QListWidget::item:selected { background-color: #3b82f6; color: white; font-weight: bold; }
+QListWidget::item:hover { background-color: #313244; }
+QLineEdit, QComboBox { background-color: #252535; border: 1px solid #45475a; border-radius: 12px; padding: 0 15px; color: white; min-height: 45px; }
+QLineEdit:focus, QComboBox:focus { border: 1px solid #89b4fa; background-color: #2a2a3d; }
+QRadioButton { spacing: 12px; font-weight: 500; }
+QRadioButton::indicator { width: 22px; height: 22px; border-radius: 12px; border: 2px solid #585b70; }
+QRadioButton::indicator:checked { background-color: #3b82f6; border-color: #3b82f6; }
+QPushButton { border-radius: 12px; font-weight: bold; min-height: 40px; }
+QPushButton#btnAdd { background-color: transparent; color: #a6e3a1; border: 2px solid #313244; }
+QPushButton#btnAdd:hover { background-color: #a6e3a1; color: #1e1e2e; border: 2px solid #a6e3a1; }
+QPushButton#btnDel { background-color: transparent; color: #f38ba8; border: 2px solid #313244; }
+QPushButton#btnDel:hover { background-color: #f38ba8; color: #1e1e2e; border: 2px solid #f38ba8; }
+QPushButton#btnSave { background-color: transparent; color: #3b82f6; border: 3px solid #3b82f6; border-radius: 16px; font-size: 16px; font-weight: 800; min-height: 55px; margin-top: 10px; }
+QPushButton#btnSave:hover { background-color: #3b82f6; color: white; }
+QPushButton#btnSave:pressed { background-color: #2563eb; border-color: #2563eb; }
 """
 
 class ConfigEditor(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("G.O.S.H.A Config Editor")
-        self.resize(1100, 750)
+        self.resize(1100, 800)
         
         self.config_data = {}
         self.commands = []
@@ -156,18 +54,35 @@ class ConfigEditor(QMainWindow):
         main_layout.setContentsMargins(30, 30, 30, 30)
         main_layout.setSpacing(30)
 
+        # --- LEFT PANEL ---
         left_frame = QFrame()
         left_frame.setObjectName("Panel")
         left_layout = QVBoxLayout(left_frame)
         left_layout.setContentsMargins(20, 25, 20, 20)
         left_layout.setSpacing(15)
 
+        # Поле имени
+        lbl_name = QLabel("ИМЯ АССИСТЕНТА")
+        lbl_name.setObjectName("Header")
+        lbl_name.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        left_layout.addWidget(lbl_name)
+
+        self.input_bot_name = QLineEdit()
+        self.input_bot_name.setPlaceholderText("Например: гоша")
+        self.input_bot_name.setToolTip("Ассистент будет реагировать только если фраза начинается с этого имени")
+        left_layout.addWidget(self.input_bot_name)
+        
+        left_layout.addSpacing(10)
+
+        # Список команд
         lbl_list = QLabel("СПИСОК КОМАНД")
         lbl_list.setObjectName("Header")
         lbl_list.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        left_layout.addWidget(lbl_list)
         
         self.cmd_list_widget = QListWidget()
         self.cmd_list_widget.currentRowChanged.connect(self.load_command_to_form)
+        left_layout.addWidget(self.cmd_list_widget)
         
         btn_layout = QHBoxLayout()
         btn_add = QPushButton("+ Добавить")
@@ -180,18 +95,16 @@ class ConfigEditor(QMainWindow):
 
         btn_layout.addWidget(btn_add)
         btn_layout.addWidget(btn_del)
-
-        left_layout.addWidget(lbl_list)
-        left_layout.addWidget(self.cmd_list_widget)
         left_layout.addLayout(btn_layout)
 
+        # --- RIGHT PANEL ---
         right_frame = QFrame()
         right_frame.setObjectName("Panel")
         right_layout = QVBoxLayout(right_frame)
         right_layout.setContentsMargins(30, 30, 30, 30)
         right_layout.setSpacing(20)
 
-        lbl_edit = QLabel("РЕДАКТИРОВАНИЕ")
+        lbl_edit = QLabel("РЕДАКТИРОВАНИЕ КОМАНДЫ")
         lbl_edit.setObjectName("Header")
         right_layout.addWidget(lbl_edit)
         
@@ -290,6 +203,10 @@ class ConfigEditor(QMainWindow):
         with open(CONFIG_FILE, "r", encoding="utf-8") as f:
             self.config_data = json.load(f)
             self.commands = self.config_data.get("commands", [])
+            settings = self.config_data.get("settings", {})
+        
+        # Загружаем имя
+        self.input_bot_name.setText(settings.get("name", "гоша"))
         self.refresh_list()
 
     def refresh_list(self):
@@ -349,7 +266,13 @@ class ConfigEditor(QMainWindow):
                 self.current_index = -1
 
     def save_config_file(self):
+        if "settings" not in self.config_data:
+            self.config_data["settings"] = {}
+        
+        # Сохраняем имя
+        self.config_data["settings"]["name"] = self.input_bot_name.text().strip().lower()
         self.config_data["commands"] = self.commands
+        
         try:
             with open(CONFIG_FILE, "w", encoding="utf-8") as f:
                 json.dump(self.config_data, f, indent=4, ensure_ascii=False)
