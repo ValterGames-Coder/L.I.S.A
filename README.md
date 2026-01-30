@@ -17,7 +17,7 @@
 1. **Клонирование репозитория:**
    ```bash
    git clone https://github.com/ValterGames-Coder/L.I.S.A.git
-   cd G.O.S.H.A
+   cd L.I.S.A
    ```
 
 2. **Запуск установщика:**
